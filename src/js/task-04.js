@@ -1,28 +1,26 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
+    var form = document.querySelector(".login-form");
+  
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+  
+        let inputElements = form.querySelectorAll("input");
+        let inputElementsNames = [];
+        let inputElementsValue = [];
+        let inputObject = {};
 
-var form = document.querySelector('.login-form');
+        for (let i = 0; i < inputElements.length; i++) {
+            inputElementsNames[i] = inputElements[i].getAttribute("name");
+            inputElementsValue[i] = form.elements[inputElementsNames[i]].value.trim();
 
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    
-    var email = form.elements.email;
-    var password = form.elements.password;
-    
-    
-    // console.log(email);
-    // console.log(email.value);
-    
-    if ((email.value === "") || (password.value === "")) { 
-            alert("All form fields must be filled in"); 
-            return
+            if (inputElementsValue[i] === "") {
+                alert("All form fields must be filled in");
+                return;
+            }
+            
+            inputObject[inputElementsNames[i]] = inputElementsValue[i];
         }
-
-    name1 = 0
-    name2 = 0
-
-
-
+        form.reset();
+        console.log(inputObject);
+    });
 });
-
-});
-
