@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function () {
 
 var form = document.querySelector('.login-form');
 
@@ -22,3 +23,6 @@ form.addEventListener('submit', function (event) {
 
 
 });
+
+});
+
